@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input id="url" type="text" placeholder="Input url..." />
+        <button id="btn" >Make Code</button>
+
+        <div style="height: 200; width: 200px; margin-top: 20px" id="qrcode"></div>
+
+        <script type="text/javascript" src="qrcode.min.js"></script>
+        <script type="text/javascript">
+            var input = document.getElementById('url');
+            var btn = document.getElementById('btn');
+            var qrcode = new QRCode('qrcode');
+
+            function makeCode() {
+                qrcode.clear();
+
+                var url = input.value;
+
+                if(!url?.length) {
+                    alert('Url can not be empty');
+                    return;
+                }
+                
+                qrcode.makeCode(url);
+            }
+
+            btn.addEventListener('click', () => makeCode());
+            input.addEventListener('keydown', (e) => {
+                if(e.keyCode === 13) makeCode();
+            });
+        </script>
+    </body>
+</html>
