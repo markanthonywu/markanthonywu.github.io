@@ -4,12 +4,23 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+
+        <style>
+            #qrcode > canvas , img {
+                margin: 0 auto;
+            }
+        </style>
     </head>
-    <body>
+    <body style="height: 100%; width: 100%; text-align: center;" >
+        <p>INSTRUCTIONS</p>
+        <p>1. Upload a photo to any photo hosting service (ex: <a href="https://postimages.org/">https://postimages.org/</a> )</p>
+        <p>2. Copy the sharing link. Make sure it ends with a photo format (ex: .jpg .png)</p>
+        <p>3. Paste the sharing link in the input below</p>
+        <p>4. Click the Make Code button to generate a QR code.</p>
         <input id="url" type="text" placeholder="Input url..." />
         <button id="btn" >Make Code</button>
 
-        <div style="height: 200; width: 200px; margin-top: 20px" id="qrcode"></div>
+        <div style="margin: 20px auto;" id="qrcode"></div>
 
         <script type="text/javascript" src="qrcode.min.js"></script>
         <script type="text/javascript">
